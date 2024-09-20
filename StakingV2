@@ -854,9 +854,6 @@ contract ToFStake is Ownable, ReentrancyGuard {
     }
 
     // Remove ETH from vault for marketing/buybacks etc
-    // Other code ...
-
-    // Remove ETH from vault for marketing/buybacks etc
     function withdrawEth(uint256 _amount) public payable onlyOwner {
         require(_amount <  totalPoolReserve(), "Cannot withdraw more ETH than in the pool");
         (bool os, ) = payable(msg.sender).call{value: _amount}("");
